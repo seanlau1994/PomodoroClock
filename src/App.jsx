@@ -1,41 +1,27 @@
 import React from "react";
-import 'antd/dist/antd.min.css';
-import { Col, Row, Card, Layout } from "antd";
-const { Header } = Layout;
+import Header from "./components/Header";
+import Break from "./components/Break";
+import Session from "./components/Session";
+import Timer from "./components/Timer";
+import { Col, Row } from "antd";
+import "antd/dist/antd.min.css";
+import "./App.css";
 
 function App() {
   return (
-    <div>
-      <Row>
+    <div id="app-wrapper">
+      <Row gutter={[48, 48]}>
         <Col span={24}>
-          <Header style={{ backgroundColor: "#e6fffb", textAlign: "center" }}>
-            25 + 5 Clock Coding by Sean
-          </Header>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={12}>
-          <Card title="Default size card" >
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
+          <Header />
         </Col>
         <Col span={12}>
-          <Card title="Default size card">
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
+          <Break />
         </Col>
-      </Row>
-      <Row>
+        <Col span={12}>
+          <Session />
+        </Col>
         <Col span={24}>
-          <Card title="Default size card">
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </Card>
+          <Timer />
         </Col>
       </Row>
     </div>
