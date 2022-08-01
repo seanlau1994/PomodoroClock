@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
-export default function Break() {
-  const [breakValue, setBreakValue] = useState(5);
+export default function Break(props) {
+  const {breakLength,increaseBreak,decreaseBreak} = props;
   const decrement = () => {
-    if (breakValue > 1) {
-      setBreakValue(breakValue - 1);
+    if (breakLength === 1){
+      return;
     }
-  };
-
+    decreaseBreak();
+  }
   const increment = () => {
-    if (breakValue < 60) {
-      setBreakValue(breakValue + 1);
+    if (breakLength === 60){
+      return;
     }
-  };
+    increaseBreak();
+  }
+
   return (
     <Card id="break-label" title="Break Length">
-      <MinusOutlined id="break-decrement" onClick={decrement} />
+      <MinusOutlined id="break-decrement" onClick={decrement}/>
       &nbsp;
-      <span id="break-length">{breakValue}</span>&nbsp;
-      <PlusOutlined id="break-increment" onClick={increment} />
+      <span id="break-length">{breakLength}</span>&nbsp;
+      <PlusOutlined id="break-increment" onClick={increment}/>
     </Card>
   );
 }
